@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Radhu + Bittu ❤️ | A Little Place Made For You</title>
+
+    <!-- Google Fonts & Canvas Confetti -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Outfit:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700&family=Sacramento&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background Particle Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Background Audio Element -->
+    <audio id="bg-music" loop src="song.mp3"></audio>
+
+    <!-- Floating Audio Control -->
+    <button class="audio-control" id="audio-toggle" title="Toggle Music">
+        <span id="audio-icon">🎵 Music: OFF</span>
+    </button>
+
+    <!-- ========================================================= -->
+    <!-- 🌙 CHAPTER 1: INTRO SCREEN OVERLAY -->
+    <!-- ========================================================= -->
+    <div class="intro-screen" id="intro-screen">
+        <div class="intro-icon">🌙</div>
+        <h1 class="intro-title">Hey Radhu...</h1>
+        <p class="intro-subtitle">I made a little place just for you. ❤️</p>
+        <button class="btn-open-heart" id="btn-open-heart">
+            Open My Heart 💌
+        </button>
+    </div>
+
+    <!-- MAIN STORY LAYOUT -->
+    <div class="app-container">
+
+        <!-- ========================================================= -->
+        <!-- 💔 CHAPTER 2: MY MISTAKE — THINGS I WISH I COULD UNDO -->
+        <!-- ========================================================= -->
+        <div class="glass-card">
+            <div class="chapter-badge">Chapter 01 • My Mistake</div>
+            <h2 class="chapter-title">Things I Wish I Could Undo</h2>
+            <p class="chapter-desc">Tap the heart below to open my letter</p>
+
+            <div class="heart-container">
+                <div class="interactive-heart" id="interactive-heart" title="Tap to open my heart">💔</div>
+                
+                <div class="unfold-letter-box" id="unfold-letter-box">
+                    <p class="letter-text-p"><strong>Radhu, I'm really sorry. ❤️</strong></p>
+                    <p class="letter-text-p">
+                        I know I hurt you by not replying to your message, and I'm genuinely sorry for making you feel ignored. You never deserved that from me.
+                    </p>
+                    <p class="letter-text-p">
+                        And I'm even more sorry for comparing you with Avantika. That was completely wrong of me. You are your own beautiful person, and I should never compare the girl I love with anyone else.
+                    </p>
+                    <p class="letter-text-p">
+                        I realize my mistake now, and I promise I'll learn from it. You deserve to feel loved, valued, and respected every single day.
+                    </p>
+                    <p class="letter-text-p" style="color: var(--deep-rose); font-weight: 700;">
+                        I'm Sorry, Radhu. ❤️
+                    </p>
+
+                    <div style="text-align: center;">
+                        <button class="btn-undo" id="btn-undo">
+                            <span>↩️ UNDO MISTAKE</span>
+                        </button>
+                        <div id="undo-status-text" style="margin-top: 10px; font-weight: 700; color: var(--deep-rose);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- 🌸 CHAPTER 3: WHY YOU'RE SPECIAL — REASONS I FELL FOR YOU -->
+        <!-- ========================================================= -->
+        <div class="glass-card">
+            <div class="chapter-badge">Chapter 02 • Why You're Special</div>
+            <h2 class="chapter-title">Reasons I Fell For You 🌸</h2>
+            <p class="chapter-desc">Tap the center of the flower to discover reasons...</p>
+
+            <div class="flower-wrapper" id="flower-wrapper">
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="petal"></div>
+                <div class="flower-center-btn" id="flower-center-btn">🌸</div>
+            </div>
+
+            <div class="reason-card-display" id="reason-card-display">
+                Tap the flower above to reveal why you're so special to me!
+            </div>
+
+            <div class="reason-counter-row">
+                <span class="reason-count-text" id="reason-count-text">Reasons I love you: 00 / ∞</span>
+                <button class="btn-next-reason" id="btn-next-reason">Another reason →</button>
+            </div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- 🌌 CHAPTER 4: OUR LITTLE UNIVERSE (DARK ROMANTIC SECTION) -->
+        <!-- ========================================================= -->
+        <div class="glass-card universe-card">
+            <div class="chapter-badge" style="background: rgba(247, 37, 133, 0.2); color: #f72585;">Chapter 03 • Our Universe</div>
+            <h2 class="chapter-title">RADHU ❤️ BITTU</h2>
+            <p class="chapter-desc">Two people. One little universe. Tap any star below ⭐</p>
+
+            <div class="stars-grid">
+                <div class="star-node" data-memory="You are my absolute favorite human in the whole wide world! ❤️">⭐ My favorite person</div>
+                <div class="star-node" data-memory="Your smile brightens up even my darkest days. Never lose that smile! 😊">⭐ My favorite smile</div>
+                <div class="star-node" data-memory="Late night talks with you are the best part of my life. 🌙">⭐ My favorite conversations</div>
+                <div class="star-node" data-memory="Even when we fight, I still care about you more than anyone else. 🥺">⭐ My favorite little fights</div>
+                <div class="star-node" data-memory="You are my home, my comfort, and my favorite person forever. 💕">⭐ My favorite human</div>
+            </div>
+
+            <div id="star-memory-modal" style="margin-top: 20px; font-size: 1.05rem; color: #ffb703; min-height: 40px; font-weight: 600;"></div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- 📜 CHAPTER 5: BITTU'S PROMISES (SCROLL INTERFACE) -->
+        <!-- ========================================================= -->
+        <div class="glass-card">
+            <div class="chapter-badge">Chapter 04 • My Promises</div>
+            <h2 class="chapter-title">Bittu's Promises 📜</h2>
+            <p class="chapter-desc">Some promises aren't meant to be broken</p>
+
+            <button class="btn-open-heart" id="btn-unroll-scroll" style="font-size: 1.05rem; padding: 12px 30px;">
+                Unroll My Promise 📜
+            </button>
+
+            <div class="scroll-container" id="scroll-container">
+                <div class="promise-item">
+                    <div class="promise-title">Promise #01 — I promise to support your dreams. ❤️</div>
+                    <div class="promise-body">I'll do everything I can to help you get the job you want and see you become successful.</div>
+                </div>
+
+                <div class="promise-item">
+                    <div class="promise-title">Promise #02 — I promise I won't leave when things get difficult.</div>
+                    <div class="promise-body">I'll choose to talk, understand and fix things instead of running away.</div>
+                </div>
+
+                <div class="promise-item">
+                    <div class="promise-title">Promise #03 — I promise I won't block you out of anger.</div>
+                    <div class="promise-body">No matter how upset we are, I'll never use blocking or disappearing as a way to hurt you.</div>
+                </div>
+
+                <div class="promise-item">
+                    <div class="promise-title">Promise #04 — I promise I will never compare you with another girl again.</div>
+                    <div class="promise-body">You are Radhu. You are unique. And you deserve to be loved for exactly who you are.</div>
+                </div>
+
+                <div class="promise-item">
+                    <div class="promise-title">Promise #05 — I promise to keep choosing you. ❤️</div>
+                    <div class="promise-body">I'll keep learning how to understand you, love you better and take care of your heart.</div>
+                </div>
+
+                <div style="text-align: center;">
+                    <button class="btn-seal-promise" id="btn-seal-promise">
+                        Seal My Promise ❤️
+                    </button>
+                    <div class="wax-seal-stamp" id="wax-seal-stamp">
+                        🔴 PROMISE SEALED ❤️<br>
+                        <span style="font-size: 0.9rem; font-weight: 500; color: #555;">Forever your Bittu.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- 🎁 CHAPTER 6: PEACE OFFERING — CAN WE CALL A TRUCE? -->
+        <!-- ========================================================= -->
+        <div class="glass-card">
+            <div class="chapter-badge">Chapter 05 • Peace Offering</div>
+            <h2 class="chapter-title">A Little Peace Offering 🎁</h2>
+            <p class="chapter-desc">For my Radhu ❤️ Tap the gift box below</p>
+
+            <div class="gift-box-wrapper" id="gift-box-wrapper">
+                <div class="gift-box-icon" id="gift-box-icon">🎁</div>
+            </div>
+
+            <div class="peace-package-box" id="peace-package-box">
+                <h3 style="color: var(--deep-rose); margin-bottom: 12px; font-size: 1.3rem;">🎀 Bittu's Peace Package</h3>
+                <ul class="peace-list">
+                    <li>🫂 Unlimited hugs</li>
+                    <li>😘 Unlimited forehead kisses</li>
+                    <li>💌 Unlimited "I love you" messages</li>
+                    <li>🥺 1 extremely sorry Bittu</li>
+                    <li>🚫 0 more comparisons</li>
+                    <li>❤️ Unlimited reasons to smile</li>
+                </ul>
+
+                <div class="quote-highlight">
+                    "I don't want to win the argument. I want to win you back. ❤️"
+                </div>
+
+                <p style="font-size: 0.95rem; line-height: 1.6; color: #444; margin-bottom: 20px;">
+                    Come here, meri Radhu... let's forget the anger and start again with a little more love, a little more understanding and a lot more Radhu + Bittu.
+                </p>
+
+                <div class="truce-buttons-row">
+                    <button class="btn-truce-forgive" id="btn-truce-forgive">🥺 Forgive Bittu</button>
+                    <button class="btn-truce-angry" id="btn-truce-angry">😤 Still Angry</button>
+                </div>
+                <div id="truce-response-text" style="margin-top: 14px; text-align: center; font-weight: 700; color: var(--deep-rose);"></div>
+            </div>
+        </div>
+
+        <!-- ========================================================= -->
+        <!-- 💌 CHAPTER 7: FINAL QUESTION — CAN I HAVE MY RADHU BACK? -->
+        <!-- ========================================================= -->
+        <div class="glass-card">
+            <div class="chapter-badge">Final Chapter • Forgiveness</div>
+            
+            <div class="avatar-wrapper">
+                <img class="avatar-gif" src="gf.jpg" alt="Radhu Photo">
+            </div>
+
+            <h2 class="final-question-title">Radhu, I know I'm not perfect...</h2>
+            <p style="font-size: 1.05rem; line-height: 1.7; color: var(--text-dark); max-width: 520px; margin: 0 auto 20px;">
+                I make mistakes, I sometimes say the wrong things and sometimes I don't realize how much my actions can hurt you. But I promise I'll always try to be better for us.
+            </p>
+
+            <h3 style="font-size: 1.8rem; color: var(--deep-rose); margin-bottom: 20px;">
+                So... Can your Bittu have his Radhu back? 🥺❤️
+            </h3>
+
+            <div style="display: flex; align-items: center; justify-content: center; gap: 20px; min-height: 70px;">
+                <button class="btn-yes-final" id="btn-yes-final">YES ❤️</button>
+                <button class="btn-no-final" id="btn-no-final">LET ME THINK 😤</button>
+            </div>
+        </div>
+
+        <!-- FOOTER & SECRET EASTER EGG -->
+        <div class="footer">
+            Made with ❤️ for Radhu by Bittu • <span class="easter-egg-trigger" id="easter-egg-trigger" title="Tap me 3 times!">💖</span>
+        </div>
+
+    </div>
+
+    <!-- CELEBRATION MODAL ON YES -->
+    <div class="celebration-modal" id="celebration-modal">
+        <div class="celebration-content">
+            <img class="happy-gif" style="width: 180px; border-radius: 20px;" src="https://media.tenor.com/T7n_n6E1yE0AAAAj/peach-cat.gif" alt="Happy Cat">
+            <h2 style="font-family: 'Dancing Script', cursive; font-size: 2.8rem; color: var(--deep-rose);">
+                SHE FORGAVE BITTU! 🥹❤️
+            </h2>
+            <p style="font-size: 1.15rem; font-weight: 700; color: #2b2d42;">
+                Mission Successful 🎉<br>Radhu + Bittu = ∞
+            </p>
+            <p style="font-size: 1.05rem; color: #4a4e69;">
+                "I KNEW YOU STILL LOVED YOUR BITTU. 🥹❤️ Now come here, Radhu. 🫂 I love you more than these words can ever explain. ❤️"
+            </p>
+            <a href="https://wa.me/?text=I%20forgive%20you%20Bittu!%20❤️%20Radhu%20%2B%20Bittu%20%3D%20%E2%88%9E" target="_blank" class="whatsapp-btn">
+                <span>💬 Send Hug on WhatsApp 🫂</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- SECRET EASTER EGG MODAL -->
+    <div class="easter-egg-modal" id="easter-egg-modal">
+        <div class="easter-egg-content">
+            <h3 style="font-family: 'Dancing Script', cursive; font-size: 2.4rem; color: var(--deep-rose); margin-bottom: 12px;">P.S. Secret Note 🤫❤️</h3>
+            <p style="font-size: 1.1rem; line-height: 1.7; color: #333;">
+                If you're still reading this...<br>I really, really love you, Radhu. 🥺❤️
+            </p>
+            <p style="margin-top: 12px; font-weight: 700; color: var(--primary-rose);">— Yours Forever, Bittu ❤️</p>
+            <button class="close-btn" id="close-easter-egg-btn">Close Secret ❤️</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
